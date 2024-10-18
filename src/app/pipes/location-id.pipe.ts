@@ -6,7 +6,7 @@ import { User } from '../user/user';
 })
 export class LocationIdPipe implements PipeTransform {
 
-  transform(users: User[], ...ids: number[]): User[] | null {
+  transform(users: User[] | null, ...ids: number[]): User[] | null {
     if(users === null || ids.length === 0) {
       return users;
     }
