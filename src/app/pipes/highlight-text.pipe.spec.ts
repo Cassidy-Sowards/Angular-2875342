@@ -5,4 +5,6 @@ describe('HighlightTextPipe', () => {
     const pipe = new HighlightTextPipe();
     expect(pipe).toBeTruthy();
   });
+
+ 
 });
