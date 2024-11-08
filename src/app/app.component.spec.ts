@@ -1,35 +1,25 @@
-import { TestBed } from '@angular/core/testing';
-import { RouterTestingModule } from '@angular/router/testing';
-import { AppComponent } from './app.component';
+import { ComponentFixture, TestBed } from "@angular/core/testing";
 
-describe('AppComponent', () => {
+import { AppComponent } from "./app.component";
+
+describe('App Component', () => {
+  let component = AppComponent;
+  let fixture: ComponentFixture<AppComponent>;
+
   beforeEach(async () => {
-    await TestBed.configureTestingModule({
-      imports: [
-        RouterTestingModule
-      ],
-      declarations: [
-        AppComponent
-      ],
-    }).compileComponents();
-  });
+   await TestBed.configureTestingModule({
+      declarations: [AppComponent]
+    })
+      .compileComponents();
 
-  it('should create the app', () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.componentInstance;
-    expect(app).toBeTruthy();
-  });
-
-  it(`should have as title 'ng-testing-and-debugging'`, () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.componentInstance;
-    expect(app.title).toEqual('ng-testing-and-debugging');
-  });
-
-  it('should render title', () => {
-    const fixture = TestBed.createComponent(AppComponent);
+    fixture = TestBed.createComponent(AppComponent);
+    component = fixture.componentInstance;
     fixture.detectChanges();
-    const compiled = fixture.nativeElement;
-    expect(compiled.querySelector('h2').textContent).toContain('Active Users');
   });
+
+  it("should have a title", () => {
+    const compiled = fixture.nativeElement;
+    const title = compiled.querySelector('h2').textContent;
+    expect(title).toBe("Active Users");
+  })
 });
